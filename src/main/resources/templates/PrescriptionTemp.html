@@ -71,7 +71,7 @@
 </head>
 <body>
 
-    <form action="sendEmail" id = "pdfForm" method="post">
+    <form action="sendEmailToPatient" id = "pdfForm" method="post">
 <div class="container">
   <h1>Doctor Prescription Report</h1>
   
@@ -129,12 +129,12 @@
 <input type="submit" value="Submit">
 </form>
 
-<script>
+<!-- <script>
     function generatePdf() {
         let formElement = document.getElementById('pdfForm');
         html2pdf().from(formElement).save();
     }
-</script>
+</script> -->
 
 </body>
 </html>

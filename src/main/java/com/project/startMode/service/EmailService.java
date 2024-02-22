@@ -2,8 +2,10 @@ package com.project.startMode.service;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -40,14 +42,28 @@ public class EmailService {
 
             mimeMessageHelper.setTo(emailDetails.getRecipient());
             mimeMessageHelper.setText(html, true);
-            mimeMessageHelper.setFrom(sender, "Saran E");
+            mimeMessageHelper.setFrom(sender, "Doctor");
             mimeMessageHelper.setSubject("Digital Prescription");
 
             mailSender.send(mimeMessage);
         } catch (Exception e) {
-            System.out.println("Exception occured :" + e);
+            System.out.println("Exception occurred :" + e);
         }
         return "Message sent successfully";
+    }
+
+    public String acceptMail(String id) {
+
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(sender);
+        mailMessage.setTo(id);
+        mailMessage
+                .setText(
+                        "Your appointment has been accepted" + "\nMeeting Link : https://meet.google.com/ikz-fvxu-njf");
+        mailMessage.setSubject("Appointment Confirmation");
+
+        mailSender.send(mailMessage);
+        return "Mail sent successfully";
     }
 
 }

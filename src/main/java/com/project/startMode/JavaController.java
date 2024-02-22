@@ -2,11 +2,14 @@ package com.project.startMode;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +20,7 @@ import com.project.startMode.model.ChatRequestModel;
 import com.project.startMode.model.ChatResponseModel;
 import com.project.startMode.model.EmailDetails;
 import com.project.startMode.model.HomeIndex;
+import com.project.startMode.model.PatientSentData;
 import com.project.startMode.repo.DrugRepo;
 import com.project.startMode.repo.EmailData;
 import com.project.startMode.repo.JavaRepo;
@@ -89,7 +93,33 @@ public class JavaController {
     @Autowired
     private EmailService service;
 
-    @PostMapping("sendEmail")
+    @Autowired
+    private EmailData emailRepo;
+
+    @GetMapping("fixAppointment")
+    public String patientRequest() {
+        return "PatientRequest";
+    }
+
+    @PostMapping("patientDataStore")
+    public String patientRequest(PatientSentData patientSentData) {
+        emailRepo.save(patientSentData);
+        return "PatientRequest";
+    }
+
+    @RequestMapping("showPatientDetails")
+    public String showPatientRecords(Model model) {
+
+        model.addAttribute("allData", emailDataRepo.findAll());
+        return "showDetails.html";
+    }
+
+    @GetMapping("sendPrescription")
+    public String sendPrescription() {
+        return "PrescriptionTemp";
+    }
+
+    @PostMapping("sendEmailToPatient")
     public String sendFreeMark(EmailDetails emailDetails) {
         Map<String, Object> model = new HashMap<>();
         model.put("recipient", emailDetails.getRecipient());
@@ -107,11 +137,12 @@ public class JavaController {
         return "success";
     }
 
-    @RequestMapping("showPatientDetails")
-    public String showPatientRecords(Model model) {
-
-        model.addAttribute("allData", emailDataRepo.findAll());
-        return "showPatientAppoinmentDetails.html";
+    @PostMapping("accept/{id}")
+    public String accept(@PathVariable String id) {
+        // String mailId = id;
+        emailRepo.deleteById(id);
+        service.acceptMail(id);
+        return "redirect:/showPatientDetails";
     }
 
     // Chat Integration model

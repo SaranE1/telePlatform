@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org/">
+<body>
+
+<h2>Patient Appointment details</h2>
+<div class="container">
+    
+    <!-- <form action="showAl">
+        <input type="text" placeholder="Search.." name="keyWord" id = "keyWord">
+
+    </form> -->
+
+    <div>
+   
+       <table class = "table table-striped">       
+       <tr>
+            <th>Name</th>
+            <th>Mail</th>
+            <th>Date</th>       
+
+       </tr>  
+       <tr th:each="data : ${allData}">
+            <td th:text = "${data.name}"></td>
+            <td th:text = "${data.mail}"></td>
+            <td th:text="${data.date}"></td>
+            <td>
+                <form th:action="@{/accept/{id}(id = ${data.mail})}" method="post">
+                    <button type="submit">Accept</button>
+                </form>
+            </td>
+       </tr>
+   
+       </table>
+    </div>        
+    </div>      
+
+</body>
+</html>
+
