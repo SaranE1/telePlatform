@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html lang="en" xmlns="https://www.thymeleaf.org/"></html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script th:src="@{/js/html2pdf.bundle.min.js}"></script>
+        <title>Doctor Prescription</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  .container {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2 {
+    text-align: center;
+  }
+
+  .prescription-info {
+    margin-top: 20px;
+  }
+
+  .prescription-info p {
+    margin: 10px 0;
+  }
+
+  .medicine-list {
+    margin-top: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      width: 100%;
+      margin: 10px auto;
+      padding: 10px;
+      border: 2px;
+      border-color: black;
+    }
+  }
+</style>
+</head>
+<body>
+
+    <form action="sendEmail" id = "pdfForm" method="post">
+<div class="container">
+  <h1>Doctor Prescription Report</h1>
+  
+  <div class="prescription-info">
+    <h2>Patient Information</h2>
+    <p><strong>Name:</strong>  <input type="text" id="patientName" name="patientName" value=""><br>  </p>
+    <p><strong>Age:</strong>     <input type="text" id="patientAge" name="patientAge" value=""><br> </p>
+    <p><strong>Gender:</strong> 
+        <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        </select><br><br><br>
+    </p>
+    <p><strong>Age:</strong> <input type="text" id="recipient" name="recipient" value=""><br><br> </p>
+
+  </div>
+  
+  <div class="medicine-list">
+    <h2>Medicine List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <input type="text" id="medicineName1" name="medicineName1" value=""> </td>
+          <td><input type="text" id="dosage1" name="dosage1" value=""> </td>
+          <td> <select name="dayNight1" id="dayNight1">
+            <option value="Day"> Morning</option>
+            <option value="Night">Night</option>
+            <option value="Day and Night">Day and Night</option>
+        </select><br><br> </td>
+        </tr>
+      </tbody>
+       <tbody>
+        <tr>
+          <td> <input type="text" id="medicineName2" name="medicineName2" value=""> </td>
+          <td><input type="text" id="dosage2" name="dosage2" value=""></td>
+          <td> <select name="dayNight2" id="dayNight2">
+            <option value="Day"> Morning</option>
+            <option value="Night">Night</option>
+            <option value="Day and Night">Day and Night</option>
+        </select><br><br>
+       </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<input type="submit" value="Submit">
+</form>
+
+<script>
+    function generatePdf() {
+        let formElement = document.getElementById('pdfForm');
+        html2pdf().from(formElement).save();
+    }
+</script>
+
+</body>
+</html>

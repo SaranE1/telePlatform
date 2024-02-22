@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org/">
+<body>
+
+<h2>Show Patient records</h2>
+<div class="container">
+    
+    <!-- <form action="showAl">
+        <input type="text" placeholder="Search.." name="keyWord" id = "keyWord">
+
+    </form> -->
+
+    <div>
+   
+       <table class = "table table-striped">       
+       <tr>
+        <th> Mail   | </th>
+        <th> Subject  | </th>
+       <th> Body  | </th>
+       <th> Meet Link  | </th>
+       <th> Attachment </th>
+
+       </tr>       
+       <tr th:each="data : ${allData}">
+        <td th:text = "${data.recipient}"></td>
+        <td th:text = "${data.subject}"></td>
+       <td th:text="${data.body}"></td>
+       <td th:text ="${data.meetLink}"></td>
+       <td th:text = "${data.attachment}"></td>
+       </tr>
+   
+       </table>
+    </div>        
+    </div>      
+
+</body>
+</html>
+

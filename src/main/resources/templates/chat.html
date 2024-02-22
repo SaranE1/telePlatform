@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Chat gpt integration</h2>
+
+<form action="chatOut" method="post">
+    <label for="symptoms">Symptoms</label><br>
+    <input type="text" id="symptoms" name="symptoms" value=""><br>  
+    <label for="days">How many Days</label><br>
+    <input type="text" id="days" name="days" value=""><br> 
+    <button type="submit">Submit</button> 
+</form> 
+
+<div>
+    <textarea name="chatResult" id="prompt" cols="30" rows="10" th:text="${chatResult}"></textarea>
+</div>
+
+<form action="showAllDoctors">
+    <button> Find Doctors</button>
+</form>
+
+
+
+</body>
+</html>
