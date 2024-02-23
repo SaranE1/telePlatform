@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"> -->
-<html lang="en">
-<head>
-    <style>
-        /*add css Code*/
+/*add css Code*/
 html{
     height: 100%;
 } 
@@ -12,21 +7,17 @@ body{
     padding: 0;
     font-family: sans-serif;
     /* background: linear-gradient(#141e30, #243b55); */
-    background-image: url('D:/springFrame/startMode/src/main/resources/static/images/bg1.png'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
 .login-box{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 800px;
+    width: 400px;
     padding: 40px;
     transform: translate(-50%,-50%);
     /* background: rgba(0,0,0,0.5); */
-    background: rgba(69, 56, 80, 0.5);
-    
+    background:  #55608f;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -180,51 +171,12 @@ body{
       bottom: 100%;
     }
   }
-  textarea{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    max-width: 100%;
-    min-width: 100%;
-    font-size: medium;
-    color: white;
 
-    background: transparent;
+  div.chatDiv img.doctorRobot{
+    margin-left: 10%;
+    margin-top: 15%;
+    max-width: 20%;
+    max-height: 10%;
+    border-radius: 50%;
   }
   
-  
-
-    </style>
-</head>
-<body>
-    <div class="login-box">
-        <h2>Hi, I'm your Emergency doctor</h2>
-        <form action="chatOut" method="post">
-            <div class="user-box">
-                <input type="text" name="symptoms" required="">
-            <label>Symptoms</label>    
-            </div>
-            <div class="user-box">
-                <input type="text" name="days" required="">
-                <label>Days</label>
-            </div>
-
-            <div class = "chatResult">
-                <textarea name="chatResult" id="prompt" cols="30" rows="10"></textarea>
-            </div>
-            <a>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <!-- Submit -->
-                <input type="submit" value="submit"  >
-            </a>
-        </form>
-    </div>
-
-    <script>
-        document.getElementById('chat').addEventListener('click', function() {
-            window.location.href = '/chat';
-          });
-    </script>
-</body>
-</html> 

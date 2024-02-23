@@ -2,7 +2,6 @@ package com.project.startMode.service;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

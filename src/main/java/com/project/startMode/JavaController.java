@@ -2,12 +2,10 @@ package com.project.startMode;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +29,7 @@ public class JavaController {
 
     @GetMapping("/")
     public String index() {
-        return "index";
+        return "ChooseIndex";
     }
 
     @Autowired
@@ -98,13 +96,14 @@ public class JavaController {
 
     @GetMapping("fixAppointment")
     public String patientRequest() {
-        return "PatientRequest";
+        // return "PatientRequest";
+        return "fixAppointment";
     }
 
     @PostMapping("patientDataStore")
     public String patientRequest(PatientSentData patientSentData) {
         emailRepo.save(patientSentData);
-        return "PatientRequest";
+        return "redirect:fixAppointment";
     }
 
     @RequestMapping("showPatientDetails")
@@ -166,6 +165,7 @@ public class JavaController {
 
         System.out.println(responseModel.getChoices().get(0).getMessage().getContent());
         String chatResult = responseModel.getChoices().get(0).getMessage().getContent();
+        System.out.println(chatResult);
         model.addAttribute("chatResult", chatResult);
         // responseModel.getChoices().get(0).getMessage().getContent();
         return "chat";
