@@ -182,7 +182,15 @@ body{
 	min-width: 100%;
 	font-size: medium;
 	color: white;
-
+	max-height: 5%;
 	background: transparent;
   }
   
+
+  div.medicineImage img.drugs{
+    margin-left: 5%;
+    margin-top: 17%;
+    max-width: 15%;
+    max-height: 10%;
+    border-radius: 50%;
+  }

@@ -179,4 +179,10 @@ body{
     max-height: 10%;
     border-radius: 50%;
   }
+
+  div.doctorPortal img.doctor{
+     margin-top: -10%;
+  }
+
+  
   

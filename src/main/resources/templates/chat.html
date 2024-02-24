@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/css/chat.css}"/>
+
+    <style>
+        body{
+            background-image: url('[[@{/images/bg1.png}]]');
+        }
+    </style>
 </head>
 <body>
 
@@ -37,6 +43,16 @@
         <textarea name="chatResult" id="prompt" cols="30" rows="10" th:text="${chatResult}"></textarea>
     </div>
 </div>
+
+<div class="medicineImage">
+    <img th:src="@{/images/medicine.jpg}" id="showDrug" class="drugs">
+</div>
+
+<script>
+    document.getElementById('showDrug').addEventListener('click', function() {
+        window.location.href = '/showDrug';
+      });
+</script>
 
 </body>
 </html>

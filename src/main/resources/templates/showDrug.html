@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html xmlns="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/showDrug.css}"/>
+</head>
 <body>
 
 <h2>Medicine Details</h2>
+
+<form action="showDru" class="showDrugId">
+    <input type="text" placeholder="Search Medicine Details" name="keyWord" id = "keyWord">
+</form>
+
 <div class="container">
     
-    <!-- <form action="showAl">
-        <input type="text" placeholder="Search.." name="keyWord" id = "keyWord">
-    </form> -->
 
-    <div>
-   
-       <table class = "table table-striped">       
-       <tr>
-        <th> Id  | </th>
-       <th> Medicine Name  | </th>
-       <th> Price Details  |</th>
-       <th> Manufacturer name  |</th>
-       <th> Pack Size Label  |</th>
-       <th> Short Com 1  |</th>
-       <th> Short Com 2</th>
-
-
-
-
-
-       </tr>       
+    <div>   
+       <table> 
+            <thead>      
+                <tr>
+                    <th> Id   </th>
+                    <th> Medicine Name   </th>
+                    <th> Price Details  </th>
+                    <th> Manufacturer name  </th>
+                    <th> Pack Size Label  </th>
+                    <th> Short Com 1  </th>
+                    <th> Short Com 2</th>   
+                </tr> 
+            </thead>
+            
+            <tbody>
        <tr th:each="data : ${allData}">
         <td th:text = "${data.id}"></td>
        <td th:text ="${data.drugName}"></td>
@@ -38,6 +44,7 @@
 
 
        </tr>
+    </tbody>
    
        </table>
     </div>        

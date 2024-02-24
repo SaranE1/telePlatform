@@ -157,7 +157,7 @@ public class JavaController {
     @PostMapping("chatOut")
     public String openAi(ChatPromptModel chatPromptModel, Model model) {
         String prompt = "Symptoms: " + chatPromptModel.getSymptoms() + " Days: " + chatPromptModel.getDays()
-                + " Provide me the heath tips in 40 words and tell me the specific domain doctor i need to consult";
+                + " Provide me the heath tips in 40 words and tell me the specific domain doctor i need to consult in this format \"Health Tips:\" and in the next line \"Domain Doctor:\" and in the next line \"Medicine Name:\"";
         System.out.println(prompt);
         ChatRequestModel requestModel = new ChatRequestModel("gpt-3.5-turbo", prompt);
         ChatResponseModel responseModel = restTemplate.postForObject("https://api.openai.com/v1/chat/completions",
@@ -180,7 +180,16 @@ public class JavaController {
     public String showDrug(Model model) {
         // List<DrugModel> res = drugRepo.findAll();
         // System.out.println(res);
-        model.addAttribute("allData", drugRepo.findAll());
+        // model.addAttribute("allData", drugRepo.findAll());
+        return "showDrug";
+    }
+
+    @RequestMapping("showDru")
+    public String showDrug(@RequestParam("keyWord") String keyWord, Model model) {
+        System.out.println(keyWord);
+        model.addAttribute("allData",
+                drugRepo.findTop10ByDrugNameContainingOrShortCom1ContainingOrShortCom2Containing(keyWord, keyWord,
+                        keyWord));
         return "showDrug";
     }
 
