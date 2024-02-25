@@ -12,6 +12,45 @@ body{
 	background-position: center; 
 	background-repeat: no-repeat;
 }
+
+.medicineImage{
+	display: flex;
+	width: 200px;
+	height: auto;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5%;
+	margin-top: 17%;
+	position: relative;
+}
+.drugs{
+	display: block;
+	width: 100%;  
+	height: auto;
+	border-radius: 50%;
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.50s;
+	border-radius: 50%;
+}
+.overlay:hover{
+	opacity: 1;
+}
+
 .login-box{
 	position: absolute;
 	top: 50%;
@@ -187,10 +226,10 @@ body{
   }
   
 
-  div.medicineImage img.drugs{
+  /* div.medicineImage img.drugs{
     margin-left: 5%;
     margin-top: 17%;
     max-width: 15%;
     max-height: 10%;
     border-radius: 50%;
-  }
+  } */

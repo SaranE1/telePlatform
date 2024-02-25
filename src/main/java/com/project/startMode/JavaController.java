@@ -197,4 +197,14 @@ public class JavaController {
     public String prescription() {
         return "prescription";
     }
+
+    @GetMapping("doctorPortal")
+    public String doctorPortal() {
+        return "doctorPortal/portalIndex.html";
+    }
+
+    @GetMapping("brain")
+    public String brain() {
+        return "doctorPortal/brain";
+    }
 }

@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="https://www.thymeleaf.org/">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" th:href="@{/css/showAppoinmentDetails.css}"/>
-    </head>
-<body>
-
-<h2>Patient Appointment details</h2>
-<div class="container">
-    
-    <!-- <form action="showAl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/showAppoinmentDetails.css}"
+    />
+  </head>
+  <body>
+    <h2>Patient Appointment details</h2>
+    <div class="container">
+      <!-- <form action="showAl">
         <input type="text" placeholder="Search.." name="keyWord" id = "keyWord">
 
     </form> -->
 
-    <div>
-   
-       <table>   
-        <thead>    
-       <tr>
-            <th>Name</th>
-            <th>Mail</th>
-            <th>Date</th>    
-            <th>Confirmation</th>  
-       </tr> 
-    </thead> 
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Mail</th>
+              <th>Date</th>
+              <th>Confirmation</th>
+            </tr>
+          </thead>
 
-    <tbody>
-       <tr th:each="data : ${allData}">
-            <td th:text = "${data.name}"></td>
-            <td th:text = "${data.mail}"></td>
-            <td th:text="${data.date}"></td>
-            <td>
-                <form th:action="@{/accept/{id}(id = ${data.mail})}" method="post">
-                    <button type="submit">Accept</button>
+          <tbody>
+            <tr th:each="data : ${allData}">
+              <td th:text="${data.name}"></td>
+              <td th:text="${data.mail}"></td>
+              <td th:text="${data.date}"></td>
+              <td>
+                <form
+                  th:action="@{/accept/{id}(id = ${data.mail})}"
+                  method="post"
+                >
+                  <button type="submit">Accept</button>
                 </form>
-            </td>
-       </tr>
-    </tbody>
-    
-       </table>
-    </div>        
-    </div>      
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-</body>
+    <div>
+      <div class="button1" id="prescription">Prescription</div>
+      <div class="button2" id="videoConference">Video Conference</div>
+    </div>
+
+    <script>
+      document
+        .getElementById("prescription")
+        .addEventListener("click", function () {
+          window.location.href = "/sendPrescription";
+        });
+      document
+        .getElementById("videoConference")
+        .addEventListener("click", function () {
+          window.location.href = "https://meet.google.com/ikz-fvxu-njf";
+        });
+    </script>
+  </body>
 </html>
-
