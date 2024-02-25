@@ -19,9 +19,22 @@ import com.project.startMode.model.ChatResponseModel;
 import com.project.startMode.model.EmailDetails;
 import com.project.startMode.model.HomeIndex;
 import com.project.startMode.model.PatientSentData;
+import com.project.startMode.model.DoctorPortalModel.BrainDataModel;
+import com.project.startMode.model.DoctorPortalModel.DoctorData;
+import com.project.startMode.model.DoctorPortalModel.EyeDataModel;
+import com.project.startMode.model.DoctorPortalModel.HeartDataModel;
+import com.project.startMode.model.DoctorPortalModel.KidneyDataModel;
+import com.project.startMode.model.DoctorPortalModel.LungsDataModel;
+import com.project.startMode.model.DoctorPortalModel.TeethDataModel;
 import com.project.startMode.repo.DrugRepo;
 import com.project.startMode.repo.EmailData;
 import com.project.startMode.repo.JavaRepo;
+import com.project.startMode.repo.DoctorPortalRepo.BrainRepo;
+import com.project.startMode.repo.DoctorPortalRepo.EyeRepo;
+import com.project.startMode.repo.DoctorPortalRepo.HeartRepo;
+import com.project.startMode.repo.DoctorPortalRepo.KidneyRepo;
+import com.project.startMode.repo.DoctorPortalRepo.LungsRepo;
+import com.project.startMode.repo.DoctorPortalRepo.TeethRepo;
 import com.project.startMode.service.EmailService;
 
 @Controller
@@ -198,13 +211,103 @@ public class JavaController {
         return "prescription";
     }
 
+    @GetMapping("updateDoctorDetail")
+    public String updateDoctorDetail() {
+        return "doctorPortal/updateDoctorDetail";
+    }
+
+    @Autowired
+    private BrainRepo brainRepo;
+    @Autowired
+    private HeartRepo heartRepo;
+    @Autowired
+    private KidneyRepo kidneyRepo;
+    @Autowired
+    private LungsRepo lungsRepo;
+    @Autowired
+    private EyeRepo eyeRepo;
+    @Autowired
+    private TeethRepo teethRepo;
+
+    @PostMapping("updateDoctorDetail")
+    public String updateDoctorDetail(DoctorData doctorData) {
+        String domain = doctorData.getDomain();
+        switch (domain) {
+            case "Brain":
+                BrainDataModel brainDataModel = new BrainDataModel(doctorData.getDName(), doctorData.getDMail(),
+                        doctorData.getDPhone(), doctorData.getDAddress(), doctorData.getDomain());
+                brainRepo.save(brainDataModel);
+                return "redirect:/brain";
+            case "Heart":
+                HeartDataModel heartDataModel = new HeartDataModel(doctorData.getDName(), doctorData.getDMail(),
+                        doctorData.getDPhone(), doctorData.getDAddress(), doctorData.getDomain());
+                heartRepo.save(heartDataModel);
+                return "redirect:/heart";
+            case "Kidney":
+                KidneyDataModel kidneyDataModel = new KidneyDataModel(doctorData.getDName(), doctorData.getDMail(),
+                        doctorData.getDPhone(), doctorData.getDAddress(), doctorData.getDomain());
+                kidneyRepo.save(kidneyDataModel);
+                return "redirect:/kidney";
+            case "Lungs":
+                LungsDataModel lungsDataModel = new LungsDataModel(doctorData.getDName(), doctorData.getDMail(),
+                        doctorData.getDPhone(), doctorData.getDAddress(), doctorData.getDomain());
+                lungsRepo.save(lungsDataModel);
+                return "redirect:/lungs";
+            case "Eye":
+                EyeDataModel eyeDataModel = new EyeDataModel(doctorData.getDName(), doctorData.getDMail(),
+                        doctorData.getDPhone(), doctorData.getDAddress(), doctorData.getDomain());
+                eyeRepo.save(eyeDataModel);
+                return "redirect:/eye";
+            case "Teeth":
+                TeethDataModel teethDataModel = new TeethDataModel(doctorData.getDName(), doctorData.getDMail(),
+                        doctorData.getDPhone(), doctorData.getDAddress(), doctorData.getDomain());
+                teethRepo.save(teethDataModel);
+                return "redirect:/teeth";
+            default:
+                break;
+        }
+
+        return "success";
+    }
+
     @GetMapping("doctorPortal")
     public String doctorPortal() {
         return "doctorPortal/portalIndex.html";
     }
 
-    @GetMapping("brain")
-    public String brain() {
+    @RequestMapping("brain")
+    public String brain(Model model) {
+        model.addAttribute("allData", brainRepo.findAll());
         return "doctorPortal/brain";
+    }
+
+    @RequestMapping("eye")
+    public String eye(Model model) {
+        model.addAttribute("allData", eyeRepo.findAll());
+        return "doctorPortal/eye";
+    }
+
+    @RequestMapping("heart")
+    public String heart(Model model) {
+        model.addAttribute("allData", heartRepo.findAll());
+        return "doctorPortal/heart";
+    }
+
+    @RequestMapping("lungs")
+    public String lungs(Model model) {
+        model.addAttribute("allData", lungsRepo.findAll());
+        return "doctorPortal/lungs";
+    }
+
+    @RequestMapping("teeth")
+    public String teeth(Model model) {
+        model.addAttribute("allData", teethRepo.findAll());
+        return "doctorPortal/teeth";
+    }
+
+    @RequestMapping("kidney")
+    public String kidney(Model model) {
+        model.addAttribute("allData", kidneyRepo.findAll());
+        return "doctorPortal/kidney";
     }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/doctorPortalCss/allTable.css}"
+    />
+  </head>
+  <body>
+    <h2>Cardiologist</h2>
+
+    <div class="container">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Doctor Name</th>
+              <th>Mail</th>
+              <th>Phone</th>
+              <th>Clinic Address</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr th:each="data : ${allData}">
+              <td th:text="${data.dName}"></td>
+              <td th:text="${data.dMail}"></td>
+              <td th:text="${data.dPhone}"></td>
+              <td th:text="${data.dAddress}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

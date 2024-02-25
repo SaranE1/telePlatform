@@ -17,7 +17,7 @@
           class="heart"
           alt="Image 1"
         />
-        <div class="overlay">
+        <div class="overlay" id="heart">
           <div class="text">Cardiologist</div>
         </div>
       </div>
@@ -37,7 +37,7 @@
           class="kidney"
           alt="Image 3"
         />
-        <div class="overlay">
+        <div class="overlay" id="kidney">
           <div class="text">Nephrologist</div>
         </div>
       </div>
@@ -48,7 +48,7 @@
           class="eye"
           alt="Image 4"
         />
-        <div class="overlay">
+        <div class="overlay" id="eye">
           <div class="text">Ophthalmologist</div>
         </div>
       </div>
@@ -58,7 +58,7 @@
           class="lungs"
           alt="Image 5"
         />
-        <div class="overlay">
+        <div class="overlay" id="lungs">
           <div class="text">Pulmonologist</div>
         </div>
       </div>
@@ -68,7 +68,7 @@
           class="teeth"
           alt="Image 6"
         />
-        <div class="overlay">
+        <div class="overlay" id="teeth">
           <div class="text">Dentist</div>
         </div>
       </div>
@@ -77,6 +77,21 @@
     <script>
       document.getElementById("brain").addEventListener("click", function () {
         window.location.href = "/brain";
+      });
+      document.getElementById("lungs").addEventListener("click", function () {
+        window.location.href = "/lungs";
+      });
+      document.getElementById("teeth").addEventListener("click", function () {
+        window.location.href = "/teeth";
+      });
+      document.getElementById("kidney").addEventListener("click", function () {
+        window.location.href = "/kidney";
+      });
+      document.getElementById("eye").addEventListener("click", function () {
+        window.location.href = "/eye";
+      });
+      document.getElementById("heart").addEventListener("click", function () {
+        window.location.href = "/heart";
       });
     </script>
   </body>

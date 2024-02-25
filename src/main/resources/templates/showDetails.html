@@ -50,6 +50,7 @@
     <div>
       <div class="button1" id="prescription">Prescription</div>
       <div class="button2" id="videoConference">Video Conference</div>
+      <div class="button3" id="updatePortalData">Update Doctor Data</div>
     </div>
 
     <script>
@@ -62,6 +63,11 @@
         .getElementById("videoConference")
         .addEventListener("click", function () {
           window.location.href = "https://meet.google.com/ikz-fvxu-njf";
+        });
+      document
+        .getElementById("updatePortalData")
+        .addEventListener("click", function () {
+          window.location.href = "updateDoctorDetail";
         });
     </script>
   </body>
