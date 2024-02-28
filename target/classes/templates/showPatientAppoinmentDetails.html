@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org/">
+<body>
+
+<h2>Patient Appointment details</h2>
+<div class="container">
+    
+    <!-- <form action="showAl">
+        <input type="text" placeholder="Search.." name="keyWord" id = "keyWord">
+
+    </form> -->
+
+    <div>
+   
+       <table class = "table table-striped">       
+       <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mail</th>
+            <th>Medicine Name | Dosage | Frequency</th>
+            <th>Medicine Name | Dosage | Frequency</th>          
+
+       </tr>  
+       <tr th:each="data : ${allData}">
+            <td th:text = "${data.patientName}"></td>
+            <td th:text = "${data.patientAge}"></td>
+            <td th:text="${data.gender}"></td>
+            <td th:text ="${data.recipient}"></td>
+            <td th:text ="${data.medicineName1} +  ${data.dosage1} + ${data.dayNight1}"></td>
+            <td th:text ="${data.medicineName2} + ${data.dosage2} + ${data.dayNight2}"></td>
+            <td>
+                <form th:action="@{/accept/{id}(id = ${data.recipient})}" method="post">
+                    <button type="submit">Accept</button>
+                </form>
+            </td>
+       </tr>
+   
+       </table>
+    </div>        
+    </div>      
+
+</body>
+</html>
+

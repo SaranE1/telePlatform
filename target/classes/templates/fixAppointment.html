@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        th:href="@{/css/fixAppointment.css}"
+      />
+    </head>
+  </head>
+  <body>
+    <div class="login-box">
+      <h2>Fix Appointment</h2>
+      <form action="patientDataStore" method="post">
+        <div class="user-box">
+          <input type="text" name="name" required="" />
+          <label>Patient Name</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="mail" required="" />
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="date" name="date" required="" />
+          <label></label>
+        </div>
+        <a>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <!-- Submit -->
+          <input type="submit" value="Submit" />
+        </a>
+      </form>
+    </div>
+
+    <div class="doctorRobot">
+      <img th:src="@{/images/doctorRobot.png}" class="image" />
+      <div class="overlay" id="chat">
+        <div class="hdoc">Digital</div>
+        <div class="hList">Physician</div>
+      </div>
+    </div>
+
+    <div class="doctor">
+      <img th:src="@{/images/doctor.jpg}" class="image" />
+      <div class="overlay" id="doctor">
+        <div class="hdoc">Doctor</div>
+        <div class="hList">Portal</div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("chat").addEventListener("click", function () {
+        window.location.href = "/chat";
+      });
+      document.getElementById("doctor").addEventListener("click", function () {
+        window.location.href = "/doctorPortal";
+      });
+    </script>
+  </body>
+</html>

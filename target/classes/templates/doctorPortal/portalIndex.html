@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/doctorPortalCss/portalIndex.css}"
+    />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="container">
+        <img
+          th:src="@{/images/doctorPortalImages/heart.png}"
+          class="heart"
+          alt="Image 1"
+        />
+        <div class="overlay" id="heart">
+          <div class="text">Cardiologist</div>
+        </div>
+      </div>
+      <div class="container">
+        <img
+          th:src="@{/images/doctorPortalImages/brain.png}"
+          class="brain"
+          alt="Image 2"
+        />
+        <div class="overlay" id="brain">
+          <div class="text">Neurologist</div>
+        </div>
+      </div>
+      <div class="container">
+        <img
+          th:src="@{/images/doctorPortalImages/kidney.png}"
+          class="kidney"
+          alt="Image 3"
+        />
+        <div class="overlay" id="kidney">
+          <div class="text">Nephrologist</div>
+        </div>
+      </div>
+      <br />
+      <div class="container">
+        <img
+          th:src="@{/images/doctorPortalImages/eye.png}"
+          class="eye"
+          alt="Image 4"
+        />
+        <div class="overlay" id="eye">
+          <div class="text">Ophthalmologist</div>
+        </div>
+      </div>
+      <div class="container">
+        <img
+          th:src="@{/images/doctorPortalImages/lungs.png}"
+          class="lungs"
+          alt="Image 5"
+        />
+        <div class="overlay" id="lungs">
+          <div class="text">Pulmonologist</div>
+        </div>
+      </div>
+      <div class="container">
+        <img
+          th:src="@{/images/doctorPortalImages/teeth.png}"
+          class="teeth"
+          alt="Image 6"
+        />
+        <div class="overlay" id="teeth">
+          <div class="text">Dentist</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("brain").addEventListener("click", function () {
+        window.location.href = "/brain";
+      });
+      document.getElementById("lungs").addEventListener("click", function () {
+        window.location.href = "/lungs";
+      });
+      document.getElementById("teeth").addEventListener("click", function () {
+        window.location.href = "/teeth";
+      });
+      document.getElementById("kidney").addEventListener("click", function () {
+        window.location.href = "/kidney";
+      });
+      document.getElementById("eye").addEventListener("click", function () {
+        window.location.href = "/eye";
+      });
+      document.getElementById("heart").addEventListener("click", function () {
+        window.location.href = "/heart";
+      });
+    </script>
+  </body>
+</html>

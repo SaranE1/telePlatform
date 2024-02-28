@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        th:href="@{/css/doctorPortalCss/uploadDoctorDetails.css}"
+      />
+    </head>
+  </head>
+  <body>
+    <div class="login-box">
+      <h2>Fix Appointment</h2>
+      <form action="updateDoctorDetail" method="post">
+        <div class="user-box">
+          <input type="text" name="dName" required="" />
+          <label>Doctor name</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="dMail" required="" />
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="number" name="dPhone" required="" />
+          <label>Phone number</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="dAddress" required="" />
+          <label>Clinic Address</label>
+        </div>
+        <div class="user-box">
+          <input list="domain" name="domain" placeholder="Domain" />
+          <datalist id="domain" required="">
+            <option value="Heart"></option>
+            <option value="Kidney"></option>
+            <option value="Brain"></option>
+            <option value="Eye"></option>
+            <option value="Teeth"></option>
+            <option value="Lungs"></option>
+          </datalist>
+
+          <br />
+        </div>
+        <a>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <!-- Submit -->
+          <input type="submit" value="Submit" />
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

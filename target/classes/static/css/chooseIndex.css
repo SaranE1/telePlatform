@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+}
+
+.container1{
+    flex: 1;
+    width: 50%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 4px 8px #0000001a;
+    /* important content to add */
+    position: relative;
+}
+
+.container2{
+    flex: 1;
+    width: 50%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    position: relative;
+}
+
+.image1{
+    display: block;
+    width: 100%;
+}
+
+.image2{
+    display: block;
+    width: 100%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.50s;
+}
+
+.overlay:hover{
+    opacity: 1;
+}

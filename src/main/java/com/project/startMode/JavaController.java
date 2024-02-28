@@ -146,7 +146,7 @@ public class JavaController {
         model.put("dayNight2", emailDetails.getDayNight2());
         String response = service.sendFreeMark(emailDetails, model);
         System.out.println(response);
-        return "success";
+        return "redirect:/showPatientDetails";
     }
 
     @PostMapping("accept/{id}")

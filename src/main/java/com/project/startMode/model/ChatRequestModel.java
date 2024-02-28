@@ -9,7 +9,7 @@ import lombok.Data;
 public class ChatRequestModel {
     private String model;
     private List<ChatMessageModel> messages;
-    private int max_tokens = 50;
+    // private int max_tokens = 50;
 
     public ChatRequestModel(String model, String prompt) {
         this.model = model;

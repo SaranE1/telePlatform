@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Send Email</h2>
+
+<form action="sendEmail" method="post">
+  <label for="patientName">Patient Name: </label><br>
+    <input type="text" id="patientName" name="patientName" value=""><br> 
+
+    <label for="patientAge">Patient Age: </label><br>
+    <input type="text" id="patientAge" name="patientAge" value=""><br> 
+    <label for="recipient">Patient Mail Id : </label><br>
+    <input type="text" id="recipient" name="recipient" value=""><br>
+     
+  <label for="medicineName1">Medicine Name</label><br>
+  <input type="text" id="medicineName1" name="medicineName1" value="">
+
+  <label for="dosage1">Dosage</label>
+  <input type="text" id="dosage1" name="dosage1" value="">
+  
+  <label for="dayNight1"> Frequency</label>
+  <select name="dayNight1" id="dayNight1">
+      <option value="Day"> Morning</option>
+      <option value="Night">Night</option>
+      <option value="Day and Night">Day and Night</option>
+  </select><br><br>
+
+  <label for="medicineName2">Medicine Name</label><br>
+  <input type="text" id="medicineName2" name="medicineName2" value="">
+
+  <label for="dosage2">Dosage</label>
+  <input type="text" id="dosage2" name="dosage2" value="">
+  
+  <label for="dayNight2"> Frequency</label>
+  <select name="dayNight2" id="dayNight2">
+      <option value="Day"> Morning</option>
+      <option value="Night">Night</option>
+      <option value="Day and Night">Day and Night</option>
+  </select><br><br>
+
+
+  <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+ </form> 
+
+</body>
+</html>
+

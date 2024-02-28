@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/chooseIndex.css">    
+</head>
+
+<body>
+      <div class="container">
+        <div class="container1">
+            <img th:src = "@{/images/doctor.png}" class="image1">
+
+            <div class="overlay" id="doctor">
+              <h2>Doctor</h2>
+              <p>Doctors Login Portal</p>
+            </div>
+        </div>
+
+        <div class="container2">
+            <img th:src = "@{/images/patient.png}" class="image2">
+            <div class="overlay" id="patient">
+              <h2>Patient</h2>
+              <p>Patient Login Portal</p>
+            </div>
+        </div>
+      </div>
+
+      <script>
+        document.getElementById('doctor').addEventListener('click', function() {
+            window.location.href = '/showPatientDetails';
+          });
+
+          document.getElementById('patient').addEventListener('click', function() {
+            window.location.href = '/fixAppointment';
+          });
+        </script>
+
+</body>
+
+</html>
