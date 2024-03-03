@@ -9,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.RestTemplate;
 
 import com.project.startMode.model.ChatPromptModel;
@@ -26,6 +29,7 @@ import com.project.startMode.model.DoctorPortalModel.HeartDataModel;
 import com.project.startMode.model.DoctorPortalModel.KidneyDataModel;
 import com.project.startMode.model.DoctorPortalModel.LungsDataModel;
 import com.project.startMode.model.DoctorPortalModel.TeethDataModel;
+import com.project.startMode.model.whatsapp.MessageModel;
 import com.project.startMode.repo.DrugRepo;
 import com.project.startMode.repo.EmailData;
 import com.project.startMode.repo.JavaRepo;
@@ -36,6 +40,7 @@ import com.project.startMode.repo.DoctorPortalRepo.KidneyRepo;
 import com.project.startMode.repo.DoctorPortalRepo.LungsRepo;
 import com.project.startMode.repo.DoctorPortalRepo.TeethRepo;
 import com.project.startMode.service.EmailService;
+import com.project.startMode.service.Whatsapp.MessageService;
 
 @Controller
 public class JavaController {
@@ -149,11 +154,16 @@ public class JavaController {
         return "redirect:/showPatientDetails";
     }
 
+    @Autowired
+    private MessageService messageService;
+
     @PostMapping("accept/{id}")
     public String accept(@PathVariable String id) {
         // String mailId = id;
         emailRepo.deleteById(id);
-        service.acceptMail(id);
+        // service.acceptMail(id);
+        // Write phone number message sent details
+        messageService.sendMessageService(id, "Your meeting Link : https://meet.google.com/ikz-fvxu-njf");
         return "redirect:/showPatientDetails";
     }
 
@@ -310,4 +320,24 @@ public class JavaController {
         model.addAttribute("allData", kidneyRepo.findAll());
         return "doctorPortal/kidney";
     }
+
+    // Send whatsapp messages using Twilio
+
+    // @GetMapping("/sendMessage")
+    // public String sendMessage() {
+    // return "success";
+    // }
+
+    // @Autowired
+    // private MessageService messageService;
+
+    // @PostMapping("/sendMessage")
+    // public String sendMessage(@RequestBody MessageModel messageModel) {
+    // System.out.println(messageModel.getDestinationNumber() + " , " +
+    // messageModel.getMessageContent());
+    // System.out.println(messageService.sendMessageService(messageModel.getDestinationNumber(),
+    // messageModel.getMessageContent()));
+    // return "success";
+    // }
+
 }

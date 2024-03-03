@@ -31,11 +31,11 @@
           <tbody>
             <tr th:each="data : ${allData}">
               <td th:text="${data.name}"></td>
-              <td th:text="${data.mail}"></td>
+              <td th:text="${data.phoneNumber}"></td>
               <td th:text="${data.date}"></td>
               <td>
                 <form
-                  th:action="@{/accept/{id}(id = ${data.mail})}"
+                  th:action="@{/accept/{id}(id = ${data.phoneNumber})}"
                   method="post"
                 >
                   <button type="submit">Accept</button>

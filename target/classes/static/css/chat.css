@@ -58,8 +58,9 @@ body{
 	width: 800px;
 	padding: 40px;
 	transform: translate(-50%,-50%);
-	/* background: rgba(0,0,0,0.5); */
-	background: rgba(69, 56, 80, 0.5);
+	background: rgba(0,0,0,0.3);
+	/* background: rgba(69, 56, 80, 0.5); */
+	/* background: rgba(16, 35, 209, 0.512); */
 	
 	box-sizing: border-box;
 	border-radius: 10px;

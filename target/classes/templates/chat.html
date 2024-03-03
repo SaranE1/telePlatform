@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/chat.css}"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/chat.css}" />
 
     <style>
-        body{
-            background-image: url('[[@{/images/bg1.png}]]');
-        }
+      body {
+        /*background-image: url('[[@{/images/bg1.png}]]');*/
+        background-image: url("[[@{/images/bg1.png}]]");
+      }
     </style>
-</head>
-<body>
-
-
-<div class="login-box">
-    <h2>Hi, I'm your Emergency doctor</h2>
-    <form action="chatOut" method="post">
+  </head>
+  <body>
+    <div class="login-box">
+      <h2>Hi, I'm your Emergency doctor</h2>
+      <form action="chatOut" method="post">
         <div class="user-box">
-            <input type="text" name="symptoms" required="">
-        <label>Symptoms</label>    
+          <input type="text" name="symptoms" required="" />
+          <label>Symptoms</label>
         </div>
         <div class="user-box">
-            <input type="text" name="days" required="">
-            <label>Days</label>
+          <input type="text" name="days" required="" />
+          <label>Days</label>
         </div>
-        <br>
+        <br />
 
-       <center>
-        <a style="margin-top: -1%;">
+        <center>
+          <a style="margin-top: -1%">
             <span></span>
             <span></span>
             <!-- Submit -->
-            <input type="submit" value="submit"  >
-        </a>
-    </center>
-    </form>
-    <br>
-    <br>
-    <div class = "chatResult">
-        <textarea name="chatResult" id="prompt" cols="30" rows="10" th:text="${chatResult}"></textarea>
+            <input type="submit" value="submit" />
+          </a>
+        </center>
+      </form>
+      <br />
+      <br />
+      <div class="chatResult">
+        <textarea
+          name="chatResult"
+          id="prompt"
+          cols="30"
+          rows="10"
+          th:text="${chatResult}"
+        ></textarea>
+      </div>
     </div>
-</div>
 
-<div class="medicineImage">
-    <img th:src="@{/images/medicine.jpg}" class="drugs">
-    <div class="overlay" id="showDrug">
+    <div class="medicineImage">
+      <img th:src="@{/images/medicine.jpg}" class="drugs" />
+      <div class="overlay" id="showDrug">
         <div class="medicineNames">Medicine Details</div>
+      </div>
     </div>
-</div>
 
-<script>
-    document.getElementById('showDrug').addEventListener('click', function() {
-        window.location.href = '/showDrug';
-      });
-</script>
-
-</body>
+    <script>
+      document
+        .getElementById("showDrug")
+        .addEventListener("click", function () {
+          window.location.href = "/showDrug";
+        });
+    </script>
+  </body>
 </html>

@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class PatientSentData {
     private String name;
     @Id
-    private String mail;
+    private String phoneNumber;
     private String date;
 }
